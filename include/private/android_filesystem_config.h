@@ -93,9 +93,14 @@
 #define AID_NET_BW_STATS  3006  /* read bandwidth statistics */
 #define AID_NET_BW_ACCT   3007  /* change bandwidth statistics accounting */
 #define AID_NET_BT_STACK  3008  /* bluetooth: access config files */
+#if defined(QCOM_LEGACY_UIDS)
+#define AID_QCOM_ONCRPC   3009  /* can read/write /dev/oncrpc files */
+#define AID_QCOM_DIAG     3010  /* can read/write /dev/diag */
+#else
 #define AID_QCOM_DIAG     3009  /* can read/write /dev/diag */
 #define AID_IMS 3010 /* can read/write /dev/socket/imsrtp */
 #define AID_SENSORS       3011 /* access to /dev/socket/sensor_ctl_socket & QCCI/QCSI */
+#endif
 #define AID_RFS           3012  /* Remote Filesystem for peripheral processors */
 #define AID_RFS_SHARED    3013  /* Shared files for Remote Filesystem for peripheral processors  */
 
@@ -155,6 +160,8 @@ static const struct android_id_info android_ids[] = {
     { "sdcard_r",      AID_SDCARD_R, },
     { "clat",          AID_CLAT, },
     { "loop_radio",    AID_LOOP_RADIO, },
+    { "qcom_oncrpc",   AID_QCOM_ONCRPC, },
+    { "qcom_diag",     AID_QCOM_DIAG, },
     { "mediadrm",      AID_MEDIA_DRM, },
     { "package_info",  AID_PACKAGE_INFO, },
     { "sdcard_pics",   AID_SDCARD_PICS, },
