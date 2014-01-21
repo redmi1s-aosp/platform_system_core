@@ -1100,7 +1100,7 @@ int main(int argc, char **argv)
 
     is_ffbm = !strncmp(bootmode, "ffbm", 4);
     if (!is_ffbm)
-        is_charger = !strcmp(bootmode, "charger") || charging_mode_booting();
+        is_charger = !strcmp(bootmode, "charger") || !strcmp(bootmode, "mot-charger") || charging_mode_booting();
 
     INFO("property init\n");
     property_load_boot_defaults();
