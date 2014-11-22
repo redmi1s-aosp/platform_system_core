@@ -584,6 +584,11 @@ static char **get_block_device_symlinks(struct uevent *uevent)
         is_bootdevice = 1;
     }
 
+    if (bootdevice[0] != '\0' && !strncmp(device, bootdevice, sizeof(bootdevice))) {
+        make_link(link_path, "/dev/block/bootdevice");
+        is_bootdevice = 1;
+    }
+
     if (uevent->partition_name) {
         p = strdup(uevent->partition_name);
         sanitize(p);
